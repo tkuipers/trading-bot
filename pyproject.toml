@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "trading-bot"
+version = "0.0.1"
+description = "A bot to make trades within websites"
+authors = ["Tyler Kuipers <tkuipers123@gmail.com>"]
+license = "GNU GPL 2.0"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "3.12"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
