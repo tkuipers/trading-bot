@@ -5,9 +5,13 @@ description = "A bot to make trades within websites"
 authors = ["Tyler Kuipers <tkuipers123@gmail.com>"]
 license = "GNU GPL 2.0"
 readme = "README.md"
+package-mode = false
 
 [tool.poetry.dependencies]
-python = "3.12"
+python = "^3.12"
+playwright = "^1.46.0"
+playwright-stealth = "^1.0.6"
+fastapi = {extras = ["standard"], version = "^0.112.2"}
 
 
 [build-system]
