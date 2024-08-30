@@ -1,20 +1,19 @@
+import time
+
 from fastapi import FastAPI
-from playwright.async_api import async_playwright
-from playwright_stealth import stealth_async
+import pyotp
+import os
+
+from app.wealthsimple.wealthsimple import WealthSimple
+
 
 app = FastAPI()
-
-
+username = os.environ.get("BROKER_USERNAME")
+password = os.environ.get("BROKER_PASSWORD")
+secret = os.environ.get("BROKER_OTP_SECRET")
+platform = WealthSimple(username, password, secret)
 @app.get("/")
 async def root():
-    async with async_playwright() as p:
-        browser = await p.chromium.launch(headless=False)
-        context = await browser.new_context()
-        # Open a new page
-        page = await context.new_page()
-        await stealth_async(page)
-        await page.goto("https://my.wealthsimple.com/app/login")
-        title = await page.title()
-        print(f'The page title is: {title}')
-
+    await platform.login()
+    time.sleep(5)
     return {"message": "Hello World"}

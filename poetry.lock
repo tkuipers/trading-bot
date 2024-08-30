@@ -230,24 +230,24 @@ files = [
 
 [[package]]
 name = "httpcore"
-version = "1.0.5"
+version = "0.16.3"
 description = "A minimal low-level HTTP client."
 optional = false
-python-versions = ">=3.8"
+python-versions = ">=3.7"
 files = [
-    {file = "httpcore-1.0.5-py3-none-any.whl", hash = "sha256:421f18bac248b25d310f3cacd198d55b8e6125c107797b609ff9b7a6ba7991b5"},
-    {file = "httpcore-1.0.5.tar.gz", hash = "sha256:34a38e2f9291467ee3b44e89dd52615370e152954ba21721378a87b2960f7a61"},
+    {file = "httpcore-0.16.3-py3-none-any.whl", hash = "sha256:da1fb708784a938aa084bde4feb8317056c55037247c787bd7e19eb2c2949dc0"},
+    {file = "httpcore-0.16.3.tar.gz", hash = "sha256:c5d6f04e2fc530f39e0c077e6a30caa53f1451096120f1f38b954afd0b17c0cb"},
 ]
 
 [package.dependencies]
+anyio = ">=3.0,<5.0"
 certifi = "*"
 h11 = ">=0.13,<0.15"
+sniffio = "==1.*"
 
 [package.extras]
-asyncio = ["anyio (>=4.0,<5.0)"]
 http2 = ["h2 (>=3,<5)"]
 socks = ["socksio (==1.*)"]
-trio = ["trio (>=0.22.0,<0.26.0)"]
 
 [[package]]
 name = "httptools"
@@ -299,28 +299,26 @@ test = ["Cython (>=0.29.24,<0.30.0)"]
 
 [[package]]
 name = "httpx"
-version = "0.27.2"
+version = "0.23.3"
 description = "The next generation HTTP client."
 optional = false
-python-versions = ">=3.8"
+python-versions = ">=3.7"
 files = [
-    {file = "httpx-0.27.2-py3-none-any.whl", hash = "sha256:7bb2708e112d8fdd7829cd4243970f0c223274051cb35ee80c03301ee29a3df0"},
-    {file = "httpx-0.27.2.tar.gz", hash = "sha256:f7c2be1d2f3c3c3160d441802406b206c2b76f5947b11115e6df10c6c65e66c2"},
+    {file = "httpx-0.23.3-py3-none-any.whl", hash = "sha256:a211fcce9b1254ea24f0cd6af9869b3d29aba40154e947d2a07bb499b3e310d6"},
+    {file = "httpx-0.23.3.tar.gz", hash = "sha256:9818458eb565bb54898ccb9b8b251a28785dd4a55afbc23d0eb410754fe7d0f9"},
 ]
 
 [package.dependencies]
-anyio = "*"
 certifi = "*"
-httpcore = "==1.*"
-idna = "*"
+httpcore = ">=0.15.0,<0.17.0"
+rfc3986 = {version = ">=1.3,<2", extras = ["idna2008"]}
 sniffio = "*"
 
 [package.extras]
 brotli = ["brotli", "brotlicffi"]
-cli = ["click (==8.*)", "pygments (==2.*)", "rich (>=10,<14)"]
+cli = ["click (==8.*)", "pygments (==2.*)", "rich (>=10,<13)"]
 http2 = ["h2 (>=3,<5)"]
 socks = ["socksio (==1.*)"]
-zstd = ["zstandard (>=0.18.0)"]
 
 [[package]]
 name = "idna"
@@ -473,23 +471,6 @@ files = [
 [package.dependencies]
 greenlet = "3.0.3"
 pyee = "11.1.0"
-
-[[package]]
-name = "playwright-stealth"
-version = "1.0.6"
-description = "playwright stealth"
-optional = false
-python-versions = ">=3, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
-files = [
-    {file = "playwright-stealth-1.0.6.tar.gz", hash = "sha256:b504d951d00fac755c7d13665a29611d415180510bd7d23f14ebc89439ba2043"},
-    {file = "playwright_stealth-1.0.6-py3-none-any.whl", hash = "sha256:b1b2bcf58eb6859aa53d42c49b91c4e27b74a6d13fc3d0c85eea513dd55efda3"},
-]
-
-[package.dependencies]
-playwright = "*"
-
-[package.extras]
-test = ["pytest"]
 
 [[package]]
 name = "pydantic"
@@ -646,6 +627,20 @@ files = [
 windows-terminal = ["colorama (>=0.4.6)"]
 
 [[package]]
+name = "pyotp"
+version = "2.9.0"
+description = "Python One Time Password Library"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "pyotp-2.9.0-py3-none-any.whl", hash = "sha256:81c2e5865b8ac55e825b0358e496e1d9387c811e85bb40e71a3b29b288963612"},
+    {file = "pyotp-2.9.0.tar.gz", hash = "sha256:346b6642e0dbdde3b4ff5a930b664ca82abfa116356ed48cc42c7d6590d36f63"},
+]
+
+[package.extras]
+test = ["coverage", "mypy", "ruff", "wheel"]
+
+[[package]]
 name = "python-dotenv"
 version = "1.0.1"
 description = "Read key-value pairs from a .env file and set them as environment variables"
@@ -734,6 +729,23 @@ files = [
     {file = "PyYAML-6.0.2-cp39-cp39-win_amd64.whl", hash = "sha256:39693e1f8320ae4f43943590b49779ffb98acb81f788220ea932a6b6c51004d8"},
     {file = "pyyaml-6.0.2.tar.gz", hash = "sha256:d584d9ec91ad65861cc08d42e834324ef890a082e591037abe114850ff7bbc3e"},
 ]
+
+[[package]]
+name = "rfc3986"
+version = "1.5.0"
+description = "Validating URI References per RFC 3986"
+optional = false
+python-versions = "*"
+files = [
+    {file = "rfc3986-1.5.0-py2.py3-none-any.whl", hash = "sha256:a86d6e1f5b1dc238b218b012df0aa79409667bb209e58da56d0b94704e712a97"},
+    {file = "rfc3986-1.5.0.tar.gz", hash = "sha256:270aaf10d87d0d4e095063c65bf3ddbc6ee3d0b226328ce21e036f946e421835"},
+]
+
+[package.dependencies]
+idna = {version = "*", optional = true, markers = "extra == \"idna2008\""}
+
+[package.extras]
+idna2008 = ["idna"]
 
 [[package]]
 name = "rich"
@@ -1082,4 +1094,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "aa4f3ed625c73985eb2ee82d09f9d45a33e08ade2dcbbfbbfd75e2459b62e69d"
+content-hash = "c96e57841cc3bd345f2f45f8ddbb06f797b73f5fb72786f60df53edd599e703c"
